@@ -1,0 +1,120 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+
+
+main{
+    height: 100%;
+    color: black;
+    border: 2px black solid
+}
+body{
+    background-color: blanchedalmond;
+}
+
+.barraDebusqueda{
+    position: relative;
+}
+
+input{
+    padding: 10px;
+    padding-right: 35px;
+    border-radius: 5px ;
+    border: 1px black solid;
+}
+
+.lupa{
+    background-color: rgba(0, 255, 255, 0.527);
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+
+.contenedor{
+    text-align: center;
+}
+
+.contenedor-2{
+    padding: 5px;
+    border: 1px black solid;
+    display: flex;
+    justify-content:space-between;
+    border-radius: 5px;
+    height: 100%;
+}
+
+.boton{
+    background-color: rgba(10, 238, 10, 0.884);
+    height: 100%;
+    margin-left: 10px;
+    padding: 5px;
+}
+
+.boton1{
+    background-color: rgba(10, 238, 10, 0.884);
+    height: 100%;
+    margin-left: 10px;
+    padding: 5px;
+}
+
+.boton2{
+    background-color: rgba(10, 238, 10, 0.884);
+    height: 100%;
+    margin-left: 10px;
+    padding: 5px;
+}
+
+.boton3{
+    background-color: rgba(10, 238, 10, 0.884);
+    height: 100%;
+    margin-left: 10px;
+    padding: 5px;
+}
+
+
+.ropaHombresVerano{
+    text-align: center;
+    background-color: rgba(233, 187, 119, 0.671);
+    border: 1px black solid;
+    
+}
+
+.ropaHombresInvierno{
+    text-align: center;
+    background-color:  rgba(233, 187, 119, 0.671);
+    border: 1px black solid;
+}
+
+.ropaMujeresVerano{
+    text-align: center;
+    background-color:  rgba(233, 187, 119, 0.671);
+    border: 1px black solid;
+}
+
+.ropaMujeresInvierno{
+    text-align: center;
+    background-color:  rgba(233, 187, 119, 0.671);
+    border: 1px black solid;
+}
+
+.ropaNiñosVerano{
+    text-align: center;
+    background-color: rgba(233, 187, 119, 0.671);
+    border: 1px black solid;
+}
+
+.ropaNiñosInvierno{
+    text-align: center;
+    background-color:  rgba(233, 187, 119, 0.671);
+    border: 1px black solid;
+}
+
+
+.productosNuevos{
+    text-align: center;
+}
