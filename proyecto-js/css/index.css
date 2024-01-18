@@ -48,12 +48,28 @@ input{
     height: 100%;
 }
 
+.botonSumar {
+    height: 20px;
+    width: 20px;
+}
+
+.botonRestar {
+    height: 20px;
+    width: 20px;
+}
+
+.contador {
+    width: 20px;
+    height: 20px;
+}
+
 .boton{
     background-color: rgba(10, 238, 10, 0.884);
     height: 100%;
     margin-left: 10px;
     padding: 5px;
 }
+
 
 .boton1{
     background-color: rgba(10, 238, 10, 0.884);
@@ -63,13 +79,6 @@ input{
 }
 
 .boton2{
-    background-color: rgba(10, 238, 10, 0.884);
-    height: 100%;
-    margin-left: 10px;
-    padding: 5px;
-}
-
-.boton3{
     background-color: rgba(10, 238, 10, 0.884);
     height: 100%;
     margin-left: 10px;

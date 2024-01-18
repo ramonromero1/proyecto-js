@@ -2,6 +2,16 @@
 
 //app ();
 
+// ------------------------------ Usuario y carrito de compras ---------------------------
+
+
+
+
+
+
+
+// ------------------------------ Usuario y carrito de compras ---------------------------
+
 // ------------ Barra para buscar prendas dentro de la pagina ----------------------------
 const buscador = document.querySelector("#buscador")
 
@@ -15,25 +25,47 @@ lupa.onclick = () => {
     console.log("Click para buscar");
 }
 
-const agregarPrenda = document.querySelector("#boton1")
 
-boton1.onclick = () =>{
-   console.log("Agregar producto");
-}
+const eliminarProductos = document.querySelector ("#boton1")
 
-const eliminarProductos = document.querySelector ("#boton2")
-
-boton2.onclick = () => {
+boton1.onclick = () => {
     console.log("Eliminar Producto");
 }
 
-const agregarCarrito = document.querySelector ("#boton3")
+const agregarCarrito = document.querySelector ("#boton2")
 
-boton3.onclick = () => {
+boton2.onclick = () => {
     console.log("Agregar a carrito");
 }
 
-// ------------------ Formulario para añadir prendas---------------
+
+// ------------ Barra para buscar prendas dentro de la pagina ----------------------------
+
+
+// ------------ Botones de controlador de stock ------------------------------------------
+
+let botonSumar = document.querySelectorAll(".botonSumar ");
+let botonRestar = document.querySelector("#botonRestar");
+let contador = document.querySelector("#contador");
+
+let numeroContador = 0;
+
+contador.innerText = numeroContador;
+
+botonSumar.onclick  = () => {
+    numeroContador++;
+    contador.innerText = numeroContador;
+}
+
+botonRestar.onclick = () =>{
+    numeroContador--;
+    contador.innerText = numeroContador;
+}
+
+
+// ------------ Botones de controlador de stock ------------------------------------------
+
+// ------------------ Formulario para añadir prendas--------------------------------------
 
 let novedades = document.querySelector("#novedades")
 let nombrePrenda = document.querySelector("#nombrePrenda")
@@ -53,9 +85,10 @@ let prendas = [];
 const agregarRopa = () => {
     listaProductos.innerText = "";
     prendas.forEach (prenda => {
-        let li = document.createElement ("li");
-        li.innerText = `${prenda.nombre} ${prenda.seccion}`;
-        listaProductos.appendChild(li);
+        let div = document.createElement ("div");
+        div.className = "contenedor-2"
+        div.innerText = `${prenda.nombrePrenda} ${prenda.secInput}`;
+        listaProductos.appendChild(div);
     })
 }
 
@@ -72,18 +105,27 @@ novedades.onsubmit = (event) => {
         Seccion : secInput.value
     }
     console.log(prenda);
-    prendas.push (prenda);
+    prendas.push (prendas);
     console.log(prendas);
     novedades.reset();
     agregarRopa();
     
 }
 
+// ------------------ Formulario para añadir prendas--------------------------------------
 
 
 
-// QUE QUIERO HACER
-// CONTROLADOR DE STOCK QUE PUEDA AGREGAR PRODUCTOS
-// BUSCADOR DE PRODUCTOS
-// CARRITO QUE GUARDE UN PERFIL SEGUN EL NOMBRE QUE SE INGRESE 
+// Traer informacion
+
+let products = [];
+
+fetch ("/data/productos.json")
+    .then (resp => resp.json)
+    .then (data => {
+        products = [...data];
+        console.log(products);
+    })
+
+
 

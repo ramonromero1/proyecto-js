@@ -1,0 +1,7 @@
+[
+    {"nombre": "Remera negra lisa", "precio": 1500, "id": 1},
+    {"nombre": "Remera Blanca lisa", "precio": 1500, "id": 2},
+    {"nombre": "Remera sin mangas con estampado ", "precio": 1500, "id": 3},
+    {"nombre": "Remera con mangas con estampado", "precio": 1500, "id": 4},
+    {"nombre": "Buzo negro", "precio": 1500, "id": 5}
+]
