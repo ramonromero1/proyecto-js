@@ -1,123 +1,115 @@
-//import {app} from "./src/app"
+import Toastify from 'toastify-js'
+import"toastify-js/src/toastify.css";
 
-//app ();
-
-// ------------------------------ Usuario y carrito de compras ---------------------------
-
-
-
-
-
-
-
-// ------------------------------ Usuario y carrito de compras ---------------------------
-
-// ------------ Barra para buscar prendas dentro de la pagina ----------------------------
-const buscador = document.querySelector("#buscador")
-
-buscador.onchange = () => {
-    console.log(buscador.value);
-}
-
-const lupa = document.querySelector(".lupa")
-
-lupa.onclick = () => {
-    console.log("Click para buscar");
-}
-
-
-const eliminarProductos = document.querySelector ("#boton1")
-
-boton1.onclick = () => {
-    console.log("Eliminar Producto");
-}
-
-const agregarCarrito = document.querySelector ("#boton2")
-
-boton2.onclick = () => {
-    console.log("Agregar a carrito");
-}
-
-
-// ------------ Barra para buscar prendas dentro de la pagina ----------------------------
 
 
 // ------------ Botones de controlador de stock ------------------------------------------
 
-let botonSumar = document.querySelectorAll(".botonSumar ");
-let botonRestar = document.querySelector("#botonRestar");
-let contador = document.querySelector("#contador");
+document.querySelectorAll(".producto").forEach(producto => {
+    
+    let botonSumar = producto.querySelector(".botonSumar");
+    let botonRestar = producto.querySelector(".botonRestar");
+    let contador = producto.querySelector(".contador");
 
-let numeroContador = 0;
+    let numeroContador = 0;
 
-contador.innerText = numeroContador;
-
-botonSumar.onclick  = () => {
-    numeroContador++;
     contador.innerText = numeroContador;
-}
 
-botonRestar.onclick = () =>{
-    numeroContador--;
-    contador.innerText = numeroContador;
-}
+    botonSumar.onclick = () => {
+        Toastify ({
+            text:"Has agregado una prenda",
+            position : 'left',
+            backgroundColor: `green`,
+        }) .showToast();
+        numeroContador++;
+        contador.innerText = numeroContador;
+    }
 
+    botonRestar.onclick = () => {
+        Toastify({
+            text: "Has eliminado una prenda",
+            position: 'letf',
+            backgroundColor: `red`,
+            gravity: `bottom`
+        }) .showToast()
+        numeroContador--;
+        contador.innerText = numeroContador;
+    }
+});
+
+// ----------------- Boton Eliminar ------------------------------------------------------
+document.addEventListener("DOMContentLoaded", function() {
+    var botonEliminar = document.querySelectorAll(".boton1");
+
+    botonEliminar.forEach(function(boton) {
+    boton.addEventListener("click", function() {
+    this.closest(".contenedor-2").remove();
+    Toastify({
+        text: "Has eliminado un producto",
+        gravity:`bottom`
+    }) .showToast()
+      });
+    });
+  });
+
+// ----------- Boton Eliminar ------------------------------------------------------------
 
 // ------------ Botones de controlador de stock ------------------------------------------
 
 // ------------------ Formulario para añadir prendas--------------------------------------
+let novedades = document.querySelector("#novedades");
 
-let novedades = document.querySelector("#novedades")
-let nombrePrenda = document.querySelector("#nombrePrenda")
-let secInput = document.querySelector("#secInput")
-let listaProductos = document.querySelector("#listaProductos")
-
-nombrePrenda.onchange = () => {
-    console.log(nombrePrenda.value);
-}
-
-secInput.onchange = () => {
-    console.log(secInput.value);
-}
+let nombrePrenda = document.querySelector("#nombrePrenda");
+let secInput = document.querySelector("#secInput");
+let listaProductos = document.querySelector("#listaProductos");
 
 let prendas = [];
 
-const agregarRopa = () => {
-    listaProductos.innerText = "";
-    prendas.forEach (prenda => {
-        let div = document.createElement ("div");
-        div.className = "contenedor-2"
-        div.innerText = `${prenda.nombrePrenda} ${prenda.secInput}`;
-        listaProductos.appendChild(div);
-    })
-}
+    const agregarRopa = () => {
+        listaProductos.innerHTML = ""; 
+            prendas.forEach(prenda => {
+                let div = document.createElement("div");
+                div.className = "contenedor-2";
+                div.innerText = `${prenda.Prenda} ${prenda.Seccion}`;
+                listaProductos.appendChild(div);
 
 
-novedades.onsubmit = (event) => {
-    event.preventDefault()
-    console.log("Prenda agregada");
-    if (nombrePrenda.value === "" || secInput.value === "") {
-       return alert("Complete todos los campos") 
-    }
+                Toastify({
+                    text: "Has agregado una prenda nueva",
+                }) .showToast()
+            });
+        }
 
-    let prenda = {
-        Prenda : nombrePrenda.value,
-        Seccion : secInput.value
-    }
-    console.log(prenda);
-    prendas.push (prendas);
-    console.log(prendas);
-    novedades.reset();
-    agregarRopa();
-    
-}
+        novedades.onsubmit = (event) => {
+            event.preventDefault();
+
+            if (nombrePrenda.value === "" || secInput.value === "") {
+                Toastify ({
+                    text: "Complete todos los campos",
+                    backgroundColor: `red`
+                }) .showToast()
+                return;
+            }
+
+            let prenda = {
+                Prenda: nombrePrenda.value,
+                Seccion: secInput.value
+            };
+
+            prendas.push(prenda);
+            novedades.reset();
+            agregarRopa();
+        }
+
 
 // ------------------ Formulario para añadir prendas--------------------------------------
+
 
 
 
 // Traer informacion
-
+ 
+/*
 let products = [];
 
 fetch ("/data/productos.json")
@@ -126,6 +118,6 @@ fetch ("/data/productos.json")
         products = [...data];
         console.log(products);
     })
-
+*/
 
 
